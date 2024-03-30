@@ -93,3 +93,48 @@ Important Notes
     EFI Settings: If Debian is installed with UEFI, ensure that EFI is enabled in the VM settings.
     Disk Encryption: Be ready to provide the decryption passphrase for your encrypted drive when booting the VM.
     Data Safety: Regularly back up important data on your external NVMe drive to avoid data loss.
+
+
+
+Advanced Parameters:
+
+Changing Ownership of the Raw Disk
+
+    Identify the Disk Device:
+        Ensure you know the exact identifier of your external NVMe drive (e.g., /dev/disk2). You can use diskutil list to list all connected drives and find your NVMe drive.
+
+    Unloading Disk Arbitration Framework:
+        Disk access in macOS is managed by the Disk Arbitration framework, which needs to be unloaded to change ownership. Unload it using:
+
+        bash
+
+    sudo launchctl unload /System/Library/LaunchDaemons/com.apple.diskarbitrationd.plist
+
+    Be cautious: Unloading this can affect system stability and access to other disk devices.
+
+Change Ownership of the Disk Device:
+
+    Change the ownership of the disk device file to your user. Replace /dev/diskX with your device identifier:
+
+    bash
+
+    sudo chown $(whoami) /dev/diskX
+
+    This command assigns ownership of the disk device file to your current user account.
+
+Reload Disk Arbitration Framework:
+
+    Once you've changed the ownership, reload the Disk Arbitration framework:
+
+    bash
+
+        sudo launchctl load /System/Library/LaunchDaemons/com.apple.diskarbitrationd.plist
+
+Important Considerations
+
+    Temporary Change: These changes are temporary and will reset after a reboot. If you need to access the disk regularly, you'll need to repeat these steps or consider automating them (which is generally not recommended).
+    Risk of Data Loss: Direct access to raw disks can lead to unintentional data loss if not handled carefully. Ensure you have backups of your data.
+    System Security and Stability: Modifying ownership of disk devices and unloading critical system services can pose risks to the security and stability of your system. Perform these actions only if you are confident in your understanding of their implications.
+    Usage of Sudo: Commands that begin with sudo are executed with administrative privileges and should be used with caution.
+
+Remember, this is an advanced operation and typically not recommended for casual use. Ensure you fully understand the implications and risks before proceeding.
