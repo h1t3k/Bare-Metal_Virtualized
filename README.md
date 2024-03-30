@@ -56,7 +56,7 @@ Running VirtualBox with Elevated Privileges
 
 Since accessing raw disks typically requires root privileges, you might need to start VirtualBox with elevated privileges when using this VM. To do this, you can use:
 
-sudo /Applications/VirtualBox.app/Contents/MacOS/VirtualBox
+        sudo /Applications/VirtualBox.app/Contents/MacOS/VirtualBox
 
 Important Note
 
