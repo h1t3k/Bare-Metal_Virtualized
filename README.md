@@ -26,6 +26,42 @@ Creating the VMDK File
 
     Set Proper Permissions:
         Make sure that the created VMDK file is accessible. Adjust the file permissions if necessary.
+        To set the proper permissions for the VMDK file in macOS, you will typically need to ensure that your user account has read and write access to both the VMDK file and the raw disk it references. Here's how to do it:
+
+    Change Ownership of the VMDK File:
+        First, change the ownership of the VMDK file to your current user. Use the chown command in Terminal:
+
+        bash
+
+    sudo chown $(whoami) /path/to/your.vmdk
+
+    Replace /path/to/your.vmdk with the actual path to your VMDK file.
+
+Change Permissions of the VMDK File:
+
+    Next, modify the file permissions to ensure your user has read and write access. Use the chmod command:
+
+    bash
+
+        chmod 644 /path/to/your.vmdk
+
+    Grant Current User Access to the Raw Disk:
+        The current user must have access to the raw disk as well. This can be tricky, as direct access to physical disks typically requires root privileges. However, you can use the sudo command to run VirtualBox with root privileges when accessing the disk.
+        Alternatively, if you want to grant your user direct access to the disk (which can have security implications), you could change the ownership of the disk device file, but this is generally not recommended. Instead, running VirtualBox with elevated privileges when accessing this VM is safer.
+
+    Verify Permissions:
+        Verify the permissions using ls -l /path/to/your.vmdk. Ensure the output shows your username with read and write permissions.
+
+Running VirtualBox with Elevated Privileges
+
+Since accessing raw disks typically requires root privileges, you might need to start VirtualBox with elevated privileges when using this VM. To do this, you can use:
+
+sudo /Applications/VirtualBox.app/Contents/MacOS/VirtualBox
+
+Important Note
+
+    Security Concerns: Be cautious when changing permissions and ownerships of system files or when running applications with elevated privileges. It's crucial to understand the security implications, as it can pose risks to your system's security and stability.
+    Regular User Access: It's usually not recommended to give regular users direct access to raw disk devices because of the potential security risks and the possibility of accidental data loss.
 
 Setting Up the Virtual Machine
 
