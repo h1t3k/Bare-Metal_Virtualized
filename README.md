@@ -20,7 +20,7 @@ Creating the VMDK File
 
         css
 
-        sudo VBoxManage createmedium disk --filename /path/to/your.vmdk --rawdisk /dev/diskX
+        sudo VBoxManage internalcommands createrawvmdk -filename "/path/to/file/pwn.vmdk" -rawdisk /dev/diskX
 
         Replace /path/to/your.vmdk with the desired path and filename for the VMDK file. Replace /dev/diskX with your drive's identifier.
 
