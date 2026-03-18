@@ -1,4 +1,4 @@
-# THE COMPLETE WORKING GUIDE: Virtualized External NVMe Kali/Debian on macOS
+# THE COMPLETE WORKING GUIDE: Virtualized External NVMe Kali/Debian (and probably many more) on macOS intel x86_64
 
 **Battle-tested and 100% verified to work**
 
