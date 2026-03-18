@@ -54,7 +54,7 @@ If you want it mounted every boot
 
 Add this to /etc/fstab:
 
-shared   /mnt/shared   vboxsf   defaults,uid=1000,gid=1000   0   0
+Workspace   /mnt/Workspace   vboxsf   defaults,uid=1000,gid=1000   0   0
 
 sudo systemctl daemon-reload
 
