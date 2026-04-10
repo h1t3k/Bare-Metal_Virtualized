@@ -1,4 +1,5 @@
-# THE COMPLETE WORKING GUIDE: Run Windows/Linux/Debian on macOS via External NVMe VM (Bare-Metal Virtualized)
+# THE COMPLETE WORKING GUIDE:
+Windows/Linux/Debian on macOS via External NVMe VM (Bare-Metal Virtualized)
 
 Battle-tested and 100% verified to work
 
