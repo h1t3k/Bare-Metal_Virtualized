@@ -181,7 +181,7 @@ USB: Keep DISABLED
 6. Consider the host-side attachment and enabling of a usb 3.0 WiFi adapter to the virtual machine, and disabling the virtual machine's network adapter entirely, instead relying on the external adapter for internet entirely:
     In VirtualBox VM Settings -> USB:
      - Enable USB 3.0 controller
-     - Add a USB WiFi or Ethernet adapter
+     - Add a USB WiFi adapter (no ethernet adapters. one which requires the drivers to be installed manually within the virtual environment so it can't fallback to the host system once disconnected)
      - Install within virtual machine, reboot, wirelessly connect to your local network via usb 3.0 WiFi adapter, not NAT etc.
 
 Result: VM gets its own network hardware, completely separate from macOS.
